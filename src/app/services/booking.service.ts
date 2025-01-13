@@ -29,7 +29,16 @@ export class BookingService {
       name: 'Bus 6001',
       seats: this.generateSeats(),
     },
-    
+    {
+      id: '6002',
+      name: 'Bus 6002',
+      seats: this.generateSeats(),
+    },
+    {
+      id: '6003',
+      name: 'Bus 6003',
+      seats: this.generateSeats(),
+    },
   ];
 
   constructor() {
