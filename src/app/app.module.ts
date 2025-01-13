@@ -8,6 +8,7 @@ import { UserSeatSelectionComponent } from './components/user-seat-selection/use
 import { AdminPanelComponent } from './components/admin-panel/admin-panel.component';
 import { HomeComponent } from './components/home/home.component';
 import { FormsModule } from '@angular/forms';
+import { ToastComponent } from './components/toast/toast.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { FormsModule } from '@angular/forms';
     NavbarComponent,
     UserSeatSelectionComponent,
     AdminPanelComponent,
-    HomeComponent
+    HomeComponent,
+    ToastComponent
   ],
   imports: [
     BrowserModule,

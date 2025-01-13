@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BookingDetails, Bus, Seat } from 'src/app/models/types';
 import { BookingService } from 'src/app/services/booking.service';
+import { ToastService } from 'src/app/services/toast.service';
 
 @Component({
   selector: 'app-user-seat-selection',
@@ -22,7 +23,8 @@ export class UserSeatSelectionComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private bookingService: BookingService
+    private bookingService: BookingService,
+    private toastService: ToastService
   ) {}
 
   ngOnInit() {
@@ -38,6 +40,9 @@ export class UserSeatSelectionComponent implements OnInit {
     if (!seat.isBooked) {
       this.bookingDetails.seatNumber = seat.number;
     }
+    else {
+      this.toastService.show('This seat is already booked.', 'info')
+    }
   }
 
   bookSeat() {
@@ -46,6 +51,7 @@ export class UserSeatSelectionComponent implements OnInit {
       // Reset form and refresh bus data
       this.selectedSeat = undefined;
       this.bus = this.bookingService.getBusById(this.bookingDetails.busId);
+      this.toastService.show('Your seat is successfully booked!', 'success');
     }
   }
 }
