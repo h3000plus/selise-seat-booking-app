@@ -1,0 +1,49 @@
+<div class="admin-container">
+  <div class="bus-selection">
+    <h2>Select Bus</h2>
+    <select [(ngModel)]="selectedBusId" (change)="loadBusDetails()">
+      <option value="">Select a bus</option>
+      <option *ngFor="let bus of buses" [value]="bus.id">
+        {{ bus.name }}
+      </option>
+    </select>
+  </div>
+
+  <div *ngIf="selectedBus" class="bus-details">
+    <div class="seats-layout">
+      <div class="driver-section">Driver</div>
+      <div class="seats-grid">
+        <div
+          *ngFor="let seat of selectedBus.seats"
+          class="seat"
+          [class.booked]="seat.isBooked"
+          (click)="showSeatDetails(seat)"
+        >
+          {{ seat.number }}
+        </div>
+      </div>
+    </div>
+
+    <div
+      *ngIf="selectedSeat && selectedSeat.bookingDetails"
+      class="booking-details"
+    >
+      <h3>Booking Details</h3>
+      <div *ngIf="selectedSeat.bookingDetails as details">
+        <p><strong>Seat:</strong> {{ selectedSeat.number }}</p>
+        <p><strong>Name:</strong> {{ details.name }}</p>
+        <p><strong>Destination:</strong> {{ details.destination }}</p>
+        <p><strong>Time:</strong> {{ details.time }}</p>
+        <p><strong>Booking Date:</strong> {{ details.bookingDate | date }}</p>
+      </div>
+    </div>
+
+    <div
+      *ngIf="selectedSeat && !selectedSeat.bookingDetails"
+      class="booking-details"
+    >
+      <h3>Seat Status</h3>
+      <p>Seat {{ selectedSeat.number }} is available</p>
+    </div>
+  </div>
+</div>

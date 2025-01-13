@@ -1,0 +1,17 @@
+<div class="home-container">
+  <div class="hero-section">
+    <h1>Welcome to Bus Booking System</h1>
+    <p>Book your bus seats easily and conveniently</p>
+  </div>
+
+  <div class="bus-selection-section">
+    <h2>Available Buses</h2>
+    <div class="bus-grid">
+      <div *ngFor="let bus of buses" class="bus-card" (click)="selectBus(bus)">
+        <h3>{{ bus.name }}</h3>
+        <p>Available Seats: {{ getAvailableSeats(bus) }}</p>
+        <button class="select-btn">Select Bus</button>
+      </div>
+    </div>
+  </div>
+</div>
