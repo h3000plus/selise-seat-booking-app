@@ -21,6 +21,11 @@
   border-radius: 4px;
 }
 
+.driver-section img {
+  height: 80px;
+  width: 80px;
+}
+
 .seats-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -42,7 +47,7 @@
 }
 
 .seat.booked {
-  background: #ff4444;
+  background: grey;
   color: white;
   cursor: not-allowed;
 }
@@ -74,7 +79,7 @@
 button {
   width: 100%;
   padding: 0.75rem;
-  background: #4caf50;
+  background: #212529;
   color: white;
   border: none;
   border-radius: 4px;
@@ -87,11 +92,21 @@ button:disabled {
 }
 
 .error-message {
-  color: #ff4444;
+  color: grey;
   padding: 1rem;
   background: #ffe5e5;
   border-radius: 4px;
   text-align: center;
+}
+
+.size {
+  height: 12px;
+  width: 12px;
+}
+
+.seat-size {
+  height: 12px;
+  width: 18px;
 }
 
 @media (max-width: 768px) {

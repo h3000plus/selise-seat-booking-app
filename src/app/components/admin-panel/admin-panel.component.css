@@ -35,6 +35,11 @@
   border-radius: 4px;
 }
 
+.driver-section img {
+  height: 80px;
+  width: 80px;
+}
+
 .seats-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -56,7 +61,7 @@
 }
 
 .seat.booked {
-  background: #ff4444;
+  background: grey;
   color: white;
 }
 
@@ -74,6 +79,16 @@
 
 .booking-details p {
   margin-bottom: 0.5rem;
+}
+
+.size {
+  height: 12px;
+  width: 12px;
+}
+
+.seat-size {
+  height: 12px;
+  width: 18px;
 }
 
 @media (max-width: 768px) {

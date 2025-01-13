@@ -11,7 +11,7 @@
 
   <div *ngIf="selectedBus" class="bus-details">
     <div class="seats-layout">
-      <div class="driver-section">Driver</div>
+      <div class="driver-section"><img src="assets/vehicle-staring.png"></div>
       <div class="seats-grid">
         <div
           *ngFor="let seat of selectedBus.seats"
@@ -19,7 +19,7 @@
           [class.booked]="seat.isBooked"
           (click)="showSeatDetails(seat)"
         >
-          {{ seat.number }}
+          {{ seat.number }}  <img class="seat-size" src="assets/car-seat.png"/>
         </div>
       </div>
     </div>
@@ -30,20 +30,22 @@
     >
       <h3>Booking Details</h3>
       <div *ngIf="selectedSeat.bookingDetails as details">
-        <p><strong>Seat:</strong> {{ selectedSeat.number }}</p>
-        <p><strong>Name:</strong> {{ details.name }}</p>
-        <p><strong>Destination:</strong> {{ details.destination }}</p>
-        <p><strong>Time:</strong> {{ details.time }}</p>
-        <p><strong>Booking Date:</strong> {{ details.bookingDate | date }}</p>
+        <p><img class="size" src="assets/car-seat.png"/> <strong> Seat:</strong> {{ selectedSeat.number }}</p>
+        <p><img class="size" src="assets/user.png"/> <strong> Name:</strong> {{ details.name }}</p>
+        <p><img class="size" src="assets/destination.png"/> <strong> Destination:</strong> {{ details.destination }}</p>
+        <p><img class="size" src="assets/time.png"/> <strong> Time:</strong> {{ details.time }}</p>
+        <p><img class="size" src="assets/date.png"/> <strong> Booking Date:</strong> {{ details.bookingDate | date }}</p>
       </div>
     </div>
 
-    <div
+    <!-- <div
       *ngIf="selectedSeat && !selectedSeat.bookingDetails"
       class="booking-details"
     >
       <h3>Seat Status</h3>
       <p>Seat {{ selectedSeat.number }} is available</p>
-    </div>
+    </div> -->
   </div>
 </div>
+
+
